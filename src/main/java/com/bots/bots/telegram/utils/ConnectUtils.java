@@ -1,4 +1,4 @@
-package com.bots.bots.utils;
+package com.bots.bots.telegram.utils;
 
 import lombok.extern.slf4j.Slf4j;
 
