@@ -1,0 +1,12 @@
+bot:
+  username: '填入userid'
+  token: '填入token'
+proxy:
+  host: '代理地址'
+  port: '代理端口'
+  type: '代理方式'
+qing-long:
+  id: "未用到，加入驱动可以考虑直接使用"
+  username: '青龙登陆用户名'
+  password: '青龙登陆密码'
+  url: '青龙登陆地址'
