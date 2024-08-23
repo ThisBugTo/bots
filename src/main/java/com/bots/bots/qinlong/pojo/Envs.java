@@ -1,5 +1,6 @@
 package com.bots.bots.qinlong.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,9 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.time.LocalDateTime;
 
 /**
  * envs
@@ -23,6 +22,7 @@ import java.time.LocalDateTime;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @AllArgsConstructor
 @NoArgsConstructor
+@TableName("Envs")
 public class Envs {
     /**
      * ID
@@ -39,7 +39,7 @@ public class Envs {
      * 时间戳
      */
     @Size(max = 255, message = "时间戳长度不能超过255")
-    private LocalDateTime timestamp;
+    private String timestamp;
 
     /**
      * 地位
@@ -62,16 +62,4 @@ public class Envs {
      */
     @Size(max = 255, message = "备注长度不能超过255")
     private String remarks;
-
-    /**
-     * 创建时间
-     */
-    @NotNull(message = "创建时间不能为空")
-    private LocalDateTime createdAt;
-
-    /**
-     * 修改时间
-     */
-    @NotNull(message = "修改时间不能为空")
-    private LocalDateTime updatedAt;
 }

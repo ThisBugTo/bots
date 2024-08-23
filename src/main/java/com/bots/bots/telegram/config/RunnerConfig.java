@@ -3,7 +3,7 @@ package com.bots.bots.telegram.config;
 import com.bots.bots.pojo.Proxy;
 import com.bots.bots.telegram.pojo.TGBot;
 import com.bots.bots.telegram.service.TGBotService;
-import com.bots.bots.telegram.utils.ConnectUtils;
+import com.bots.bots.utils.ConnectUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

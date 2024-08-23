@@ -1,16 +1,12 @@
 package com.bots.bots.telegram.service;
 
 import com.bots.bots.qinlong.exception.QinLongException;
-import com.bots.bots.qinlong.service.EnvsService;
-import com.bots.bots.qinlong.service.QinLongService;
 import lombok.extern.slf4j.Slf4j;
 import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-
-import javax.annotation.Resource;
 
 /**
  * tg机器人服务
@@ -20,16 +16,6 @@ import javax.annotation.Resource;
  */
 @Slf4j
 public class TGBotService extends TelegramLongPollingBot {
-    /**
-     * envs服务
-     */
-    @Resource
-    private EnvsService envsService;
-    /**
-     * 青龙服务
-     */
-    @Resource
-    private QinLongService qinLongService;
     /**
      * 机器人用户名
      */
@@ -87,8 +73,8 @@ public class TGBotService extends TelegramLongPollingBot {
             //todo 考虑直接调用京东参数
             if (messageText.contains("pt_key") && messageText.contains("pt_pin")) {
                 try {
-                    if (!envsService.updateJD(messageText)) {
-                        message.setText(qinLongService.updateJD(messageText));
+                    if (!ServiceStatic.envsService.updateJD(messageText)) {
+                        message.setText(ServiceStatic.qinLongService.updateJD(messageText));
                     } else {
                         message.setText("修改成功");
                     }
