@@ -32,6 +32,6 @@ public class EnvsService {
      */
     public boolean updateJD(String value) {
         return Optional.ofNullable(envsMapper.selectOne(new LambdaQueryWrapper<Envs>().eq(Envs::getName, "JD_COOKIE")))
-                .map(envs -> envsMapper.updateById(envs.setValue(value)) > 0).orElse(false);
+                .map(envs -> envsMapper.updateById(envs.setValue(value).setStatus(0)) > 0).orElse(false);
     }
 }
