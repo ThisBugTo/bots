@@ -24,6 +24,7 @@
         <sqlite-jdbc.version>3.42.0.0</sqlite-jdbc.version>
         <spring-boot-starter-jdbc.version>2.7.18</spring-boot-starter-jdbc.version>
         <mybatis-plus-boot-starter.version>3.4.2</mybatis-plus-boot-starter.version>
+        <hutool-all.version>5.8.16</hutool-all.version>
     </properties>
     <dependencies>
         <dependency>
@@ -77,6 +78,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
             <version>${spring-boot-starter-aop.version}</version>
+        </dependency>
+
+        <!--   hutool     -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool-all.version}</version>
         </dependency>
 
         <!--   数据库     -->
