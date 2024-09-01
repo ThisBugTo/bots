@@ -15,14 +15,18 @@ import java.net.URL;
 @Slf4j
 public class ConnectUtils {
     /**
+     * url地址
+     */
+    private final static String urlAddress = "https://www.telegram.org";
+
+    /**
      * 连接
      *
      * @return {@link Boolean }
      */
     public static Boolean connect() {
+        log.info("开始检测连接：{}", urlAddress);
         try {
-            String urlAddress = "https://www.telegram.org";
-            log.info("开始检测连接：{}", urlAddress);
             URL url = new URL(urlAddress);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setUseCaches(false);

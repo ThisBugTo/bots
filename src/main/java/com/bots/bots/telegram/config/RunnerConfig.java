@@ -40,17 +40,20 @@ public class RunnerConfig implements CommandLineRunner {
      * @throws Exception 例外
      */
     @Override
-    public void run(String... args) throws Exception {
-        //对应代码
-        DefaultBotOptions botOptions = new DefaultBotOptions();
-        if (!ConnectUtils.connect()) {
-            log.info("连接超时，开始启用代理");
-            botOptions.setProxyHost(proxy.getHost());
-            botOptions.setProxyPort(Integer.parseInt(proxy.getPort()));
-            botOptions.setProxyType(DefaultBotOptions.ProxyType.valueOf(proxy.getType()));
+    public void run(String... args) {
+        try {
+            DefaultBotOptions botOptions = new DefaultBotOptions();
+            if (!ConnectUtils.connect()) {
+                log.info("连接超时，开始启用代理");
+                botOptions.setProxyHost(proxy.getHost());
+                botOptions.setProxyPort(Integer.parseInt(proxy.getPort()));
+                botOptions.setProxyType(DefaultBotOptions.ProxyType.valueOf(proxy.getType()));
+            }
+            TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
+            botsApi.registerBot(new TGBotService(tgBot.getUserName(), tgBot.getToken(), botOptions));
+            log.info("连接成功");
+        } catch (Exception e) {
+            log.error("连接telegram发生异常:{}", e.getMessage());
         }
-        TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
-        botsApi.registerBot(new TGBotService(tgBot.getUserName(), tgBot.getToken(), botOptions));
-        log.info("连接成功");
     }
 }
