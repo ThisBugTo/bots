@@ -55,7 +55,7 @@ public class QinLongService {
                     })
                     .block();
             if (ObjectUtils.isNotEmpty(block) && Objects.equals(200, block.get("code"))) {
-                log.info("调用登陆返回信息:{}", block);
+                log.debug("调用登陆返回信息:[{}]", block);
                 Optional.ofNullable(block.get("data")).ifPresent(data -> {
                     HashMap<String, Object> stringObjectHashMap = JSONObject.parseObject(JSONObject.toJSONString(data), new TypeReference<HashMap<String, Object>>() {
                     });

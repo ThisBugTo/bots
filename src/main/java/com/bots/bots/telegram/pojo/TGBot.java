@@ -30,4 +30,8 @@ public class TGBot {
      * 机器人令牌
      */
     private String token;
+    /**
+     * 管理id
+     */
+    private String rootId;
 }

@@ -46,6 +46,7 @@ bot:
   telegram:
     username: '填入userid'
     token: '填入token'
+    rootId: '管理员id'
 proxy:
   host: '代理地址'
   port: '代理端口'

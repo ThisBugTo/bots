@@ -1,3 +1,10 @@
 spring:
   profiles:
     active: dev
+    output:
+      ansi:
+        enabled: always
+logging:
+  level:
+    root: WARN  # 设置所有日志的默认级别为WARN
+    com.bots: DEBUG  # 设置com.nmgyh包下的日志级别为DEBUG
